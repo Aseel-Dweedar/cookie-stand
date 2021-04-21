@@ -1,16 +1,54 @@
-table {
-    border-collapse: collapse;
-    text-align: center;
-}
-
-td,
-th {
-    border: 1px solid #194350;
-    padding: 5px 10px;
-    background-color: #ead3cb;
-}
-
-th {
-    background-color: #845460;
-    color: white;
-}
+    table {
+        border-collapse: collapse;
+        text-align: center;
+    }
+    
+    td,
+    th {
+        border: 1px solid #194350;
+        padding: 5px 10px;
+        background-color: #ead3cb;
+    }
+    
+    th {
+        background-color: #845460;
+        color: white;
+    }
+    
+    fieldset {
+        width: 200px;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 30px;
+        background-color: #e6c4c0;
+        color: #114e60;
+        font-weight: bold;
+        font-size: 22px;
+        border-radius: 10px;
+    }
+    
+    label {
+        font-size: 15px;
+    }
+    
+    input {
+        margin-bottom: 7px;
+        height: 20px;
+    }
+    
+    button {
+        border: none;
+        height: 30px;
+        width: 120px;
+        background-color: #114e60;
+        color: white;
+        border-radius: 7px;
+    }
+    
+    button:hover {
+        background-color: black;
+    }
+    
+    input:invalid {
+        border: 2px solid rgb(202, 29, 110);
+    }
