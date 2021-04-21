@@ -9,8 +9,9 @@ function cusomersCounter(min, max) {
 }
 
 const tableOf = document.getElementById('mainTable');
+const newBranch = document.getElementById('newBranch');
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 let hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
@@ -35,7 +36,7 @@ function headerRender() {
 
 headerRender();
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 
 function Cities(cityName, minHourlyCustomers, maxHourlyCustomers, averageCookies) {
@@ -46,7 +47,10 @@ function Cities(cityName, minHourlyCustomers, maxHourlyCustomers, averageCookies
     this.customersPerHour = [];
     this.cookiesPurchased = [];
     this.totalCookies = 0;
+    Cities.coocAll.push(this);
 }
+
+Cities.coocAll = [];
 
 Cities.prototype.getCustomersPerHour = function() {
     for (let i = 0; i < hours.length; i++) {
@@ -115,37 +119,53 @@ lima.render();
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-function totalCitiesHours() {
-    let arrTotal = [];
-    for (let i = 0; i < hours.length; i++) {
-        let sumArrTotal = seattle.cookiesPurchased[i] + tokyo.cookiesPurchased[i] + dubai.cookiesPurchased[i] + paris.cookiesPurchased[i] + lima.cookiesPurchased[i]
-        arrTotal.push(sumArrTotal);
-    }
-    return arrTotal;
+newBranch.addEventListener('submit', eventButton);
+
+function eventButton(event) {
+    event.preventDefault();
+    const branchName = event.target.branchName.value;
+    const min = event.target.min.value;
+    const max = event.target.max.value;
+    const average = event.target.average.value;
+
+    let newOne = new Cities(branchName, min, max, average);
+    let rowCount = tableOf.rows.length;
+    tableOf.deleteRow(rowCount - 1);
+    newOne.getCustomersPerHour();
+    newOne.getCookiesPurchased();
+    newOne.render();
+    newBranch.reset();
+    footerRender();
 }
 
-let totalDaily = seattle.totalCookies + tokyo.totalCookies + dubai.totalCookies + paris.totalCookies + lima.totalCookies;
-
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 function footerRender() {
 
-    let hoursTotal = document.createElement('tr');
-    tableOf.appendChild(hoursTotal);
+    let footTot = document.createElement('tr');
+    tableOf.appendChild(footTot);
 
     let totalWord = document.createElement('td');
     totalWord.textContent = 'Total';
-    hoursTotal.appendChild(totalWord);
+    footTot.appendChild(totalWord);
 
+    let totalDaily = 0;
     for (let i = 0; i < hours.length; i++) {
+        let hoursTotal = 0;
         let everyTotal = document.createElement('td');
-        everyTotal.textContent = totalCitiesHours()[i];
-        hoursTotal.appendChild(everyTotal);
+        for (let j = 0; j < Cities.coocAll.length; j++) {
+            hoursTotal += Cities.coocAll[j].cookiesPurchased[i];
+            totalDaily += Cities.coocAll[j].cookiesPurchased[i];
+        }
+        everyTotal.textContent = hoursTotal;
+        footTot.appendChild(everyTotal);
     }
     let totalOftotal = document.createElement('td');
     totalOftotal.textContent = totalDaily;
-    hoursTotal.appendChild(totalOftotal);
+    footTot.appendChild(totalOftotal);
 }
 
 footerRender();
+
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
