@@ -1,28 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600&family=Ubuntu+Mono:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@500;600&family=Ubuntu+Mono:wght@700&display=swap');
-font-family: 'Roboto',
-sans-serif;
-font-family: 'Roboto Slab',
-serif;
-body {
-    margin: 0px;
-    background-color: #f5cebe;
+/* Highlights*/
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+/*Info*/
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+/*text*/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+/**************************************************/
+
+header {
+    height: 70px;
+    margin-bottom: 10px;
+    background-color: #456268;
+    padding: 10px;
 }
 
 .navv {
     float: right;
+    padding-top: 20px;
+    padding-right: 30px;
 }
 
 .n1 {
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
     padding: 10px;
-    color: #c67ace;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.sec1 {
+main {
+    width: 90%;
+    margin: auto;
+    background-color: #9a8194;
+    border: 1px solid #542e71;
+}
+
+.heroImg {
     position: relative;
     margin-bottom: 40px;
 }
@@ -37,21 +54,29 @@ body {
     width: 75%;
     padding-bottom: 30px;
     padding-left: 20px;
-    font-family: 'Ubuntu Mono', monospace;
     font-size: 50px;
     color: wheat;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h2 {
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: 20px;
+    color: #28527a;
 }
 
 .ourBranches {
     display: grid;
     grid-template-columns: repeat(5, 5fr);
     gap: 20px;
+    font-family: 'Merriweather', serif;
 }
 
 .branch {
     border: 2px solid #a799b7;
     text-transform: capitalize;
     font-size: 16px;
+    background-color: #f4eee8;
     color: #114e60;
     padding: 2px;
 }
@@ -63,8 +88,11 @@ body {
 .text {
     margin-bottom: 40px;
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
     color: #132c33;
+}
+
+.numPic {
+    width: 100%;
 }
 
 .allPics {
@@ -72,12 +100,16 @@ body {
     grid-template-columns: repeat(3, 33%);
     gap: 10px;
     margin-top: 70px;
+    border-top: 1px solid;
+    background-color: aliceblue;
+    padding-top: 15px;
 }
 
 .secPics {
     display: grid;
     grid-template-rows: 50% 50%;
     gap: 5px;
+    width: 370px;
 }
 
 .thirdPics {
@@ -92,11 +124,24 @@ body {
     gap: 5px;
 }
 
-.numPic {
-    width: 100%;
+.abouUs {
+    font-family: 'Noto Sans', sans-serif;
+    padding-left: 20px;
+    height: 140px;
+    overflow: auto;
 }
 
 footer {
-    height: 100px;
-    background-color: #a799b7;
+    height: 80px;
+    background-color: #456268;
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-left: 520px;
+}
+
+footer ul li {
+    list-style: none;
+    display: inline;
+    color: white;
+    padding: 10px;
 }
