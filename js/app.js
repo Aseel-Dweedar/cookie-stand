@@ -119,9 +119,9 @@ lima.render();
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-newBranch.addEventListener('submit', eventButton);
+newBranch.addEventListener('submit', NewCityForm);
 
-function eventButton(event) {
+function NewCityForm(event) {
     event.preventDefault();
     const branchName = event.target.branchName.value;
     const min = event.target.min.value;
